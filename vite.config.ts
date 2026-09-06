@@ -6,7 +6,9 @@ import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import { resolve } from "node:path";
 
-const nitroPreset = process.env["NITRO_PRESET"] || "node-server";
+const nitroPreset =
+  process.env["NITRO_PRESET"] ||
+  (process.env["VERCEL"] ? "vercel" : "node-server");
 
 export default defineConfig({
   plugins: [
